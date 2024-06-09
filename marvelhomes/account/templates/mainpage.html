@@ -323,21 +323,27 @@
                 </div>
             </div>
               
-                <section>
-                    <h2>dcg</h2>
-                        <ul>
-                            {% for news in news_items %}
-                                <li>
-                                    <h2>{{ news.title }}</h2>
-                                    {% if news.photo %}
-                                        <img src="{{ news.photo.url }}" alt="{{ news.title }}">
-                                    {% endif %}
-                                    <p>{{ news.description }}</p>
-                                    <p>Updated on: {{ news.updated_date }} at {{ news.updated_time }}</p>
-                                    <p>Photo Count: {{ news.photo_count }}</p>
-                                </li>
-                            {% endfor %}
-                        </ul>
+                <section class="latest_news">
+                    <div class="container my-4">
+                        <h2 class="my-5">LATEST NEWS</h2>
+                        <div class="row">
+                        {% for news in news_items %}
+                        <div class="col-md-4 my-2">
+                            <div class="card" style="width: 25rem;">
+                                {% if news.photo %}
+                                <img src="{{ news.photo.url }}" alt="{{ news.title }}" style="height: 12rem;">
+                                {% endif %}
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ news.title}}</h5>
+                                  <p class="card-text">{{ news.description}}</p>
+                                  <p>Updated on: {{ news.updated_date }} at {{ news.updated_time }}</p>
+                                  <a href="#" class="text-decoration-none text-dark"><p class="fw-bold">continue reading</p></a>
+                                </div>
+                              </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    </div>
                     
                 </section>
                

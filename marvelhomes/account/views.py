@@ -6,7 +6,8 @@ from .models import News
 
 
 def mainpage(request):
-    return render(request, 'mainpage.html')
+    news = News.objects.all()
+    return render(request, 'mainpage.html',{'news_items':news})
 
 
 
